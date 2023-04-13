@@ -63,12 +63,12 @@
       taskItem.innerText = task;
 
       // create a delete button for each task item
-      var deleteButton = document.createElement("button");
-      deleteButton.innerText = "Delete";
-      deleteButton.addEventListener("click", function() {
-        childSnapshot.ref.remove();
-      });
-      taskItem.appendChild(deleteButton);
+	var deleteButton = document.createElement("button");
+	deleteButton.innerHTML = "<span style='color: red'>X</span>";
+	deleteButton.addEventListener("click", function() {
+	  childSnapshot.ref.remove();
+	});
+	taskItem.appendChild(deleteButton);
 
       tasksList.appendChild(taskItem);
     });
