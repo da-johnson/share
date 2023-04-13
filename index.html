@@ -7,78 +7,76 @@
 
 	<!-- Add Firebase products that you want to use -->
 	<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-
-	<script>
-	  // Your web app's Firebase configuration
-	  var firebaseConfig = {
-	    apiKey: "AIzaSyBhVNRKyjPQpJi2AYhRe6PB1KMd8s2eW54",
-	    authDomain: "bio-manufacturing-in-space.firebaseapp.com",
-	    databaseURL: "https://bio-manufacturing-in-space-default-rtdb.firebaseio.com/",
-	    projectId: "bio-manufacturing-in-space",
-	    storageBucket: "bio-manufacturing-in-space.appspot.com",
-	    messagingSenderId: "48129260661",
-	    appId: "1:48129260661:web:4407baaf4a7a7bae440c3c"
-	  };
-
-	   // Initialize Firebase
-	  firebase.initializeApp(firebaseConfig);
-
-	  var addTaskForm = document.getElementById("addTaskForm");
-
-	  addTaskForm.addEventListener("submit", function(event) {
-	    event.preventDefault(); // prevent the default form submission behavior
-
-	    var taskInput = document.getElementById("taskInput");
-	    var newTask = taskInput.value;
-
-	    // write the new task to the Firebase Realtime Database
-	    firebase.database().ref("tasks").push(newTask);
-
-	    // reset the form
-	    taskInput.value = "";
-	  });
-
-	  // get a reference to the tasks collection in the Firebase Realtime Database
-	  var tasksRef = firebase.database().ref("tasks");
-
-	  // listen for changes to the tasks collection
-	  tasksRef.on("value", function(snapshot) {
-	    var tasksList = document.getElementById("myTasks");
-
-	    // clear the current list items
-	    tasksList.innerHTML = "";
-
-	    // iterate over the tasks in the snapshot and add them to the list
-	    snapshot.forEach(function(childSnapshot) {
-	      var task = childSnapshot.val();
-	      var taskItem = document.createElement("li");
-	      taskItem.innerText = task;
-	      tasksList.appendChild(taskItem);
-	    });
-	  });
-	</script>
-
 </head>
 <body>
 	<form id="addTaskForm">
 	  <input type="text" id="taskInput" placeholder="Enter task...">
 	  <button type="submit">Add</button>
 	</form>
+<!-- Define an empty <ul> element where the tasks will be added dynamically -->
+<ul id="myTasks"></ul>
 
-	<!-- Define an empty <ul> element where the tasks will be added dynamically -->
-	<ul id="myTasks"></ul>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBhVNRKyjPQpJi2AYhRe6PB1KMd8s2eW54",
+    authDomain: "bio-manufacturing-in-space.firebaseapp.com",
+    databaseURL: "https://bio-manufacturing-in-space-default-rtdb.firebaseio.com/",
+    projectId: "bio-manufacturing-in-space",
+    storageBucket: "bio-manufacturing-in-space.appspot.com",
+    messagingSenderId: "48129260661",
+    appId: "1:48129260661:web:4407baaf4a7a7bae440c3c"
+  };
 
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			if (localStorage.getItem('myTasksData')) {
-				$("#myTasks").html(localStorage.getItem('myTasksData'));
-			}
+   // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-			$("#myTasks").on('input', function() {
-				localStorage.setItem('myTasksData', this.innerHTML);
-			});
+  var addTaskForm = document.getElementById("addTaskForm");
+
+  addTaskForm.addEventListener("submit", function(event) {
+    event.preventDefault(); // prevent the default form submission behavior
+
+    var taskInput = document.getElementById("taskInput");
+    var newTask = taskInput.value;
+
+    // write the new task to the Firebase Realtime Database
+    firebase.database().ref("tasks").push(newTask);
+
+    // reset the form
+    taskInput.value = "";
+  });
+
+  // get a reference to the tasks collection in the Firebase Realtime Database
+  var tasksRef = firebase.database().ref("tasks");
+
+  // listen for changes to the tasks collection
+  tasksRef.on("value", function(snapshot) {
+    var tasksList = document.getElementById("myTasks");
+
+    // clear the current list items
+    tasksList.innerHTML = "";
+
+    // iterate over the tasks in the snapshot and add them to the list
+    snapshot.forEach(function(childSnapshot) {
+      var task = childSnapshot.val();
+      var taskItem = document.createElement("li");
+      taskItem.innerText = task;
+      tasksList.appendChild(taskItem);
+    });
+  });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function() {
+		if (localStorage.getItem('myTasksData')) {
+			$("#myTasks").html(localStorage.getItem('myTasksData'));
+		}
+
+		$("#myTasks").on('input', function() {
+			localStorage.setItem('myTasksData', this.innerHTML);
 		});
-	</script>
+	});
+</script>
 </body>
 </html>
