@@ -1,12 +1,12 @@
 // Your web app's Firebase configuration
 var firebaseConfig = {
-	apiKey: "YOUR_API_KEY",
-	authDomain: "YOUR_AUTH_DOMAIN",
-	databaseURL: "YOUR_DATABASE_URL",
-	projectId: "YOUR_PROJECT_ID",
-	storageBucket: "YOUR_STORAGE_BUCKET",
-	messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-	appId: "YOUR_APP_ID"
+	  apiKey: "AIzaSyBhVNRKyjPQpJi2AYhRe6PB1KMd8s2eW54",
+	  authDomain: "bio-manufacturing-in-space.firebaseapp.com",
+	  databaseURL: "https://bio-manufacturing-in-space-default-rtdb.firebaseio.com/",
+	  projectId: "bio-manufacturing-in-space",
+	  storageBucket: "bio-manufacturing-in-space.appspot.com",
+	  messagingSenderId: "48129260661",
+	  appId: "1:48129260661:web:4407baaf4a7a7bae440c3c"
 };
 
 // Initialize Firebase
