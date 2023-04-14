@@ -1,0 +1,12 @@
+li {
+  margin-bottom: 5px;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
