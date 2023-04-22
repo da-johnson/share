@@ -7,13 +7,30 @@
 	<link rel="stylesheet" type="text/css" href="editable-list.css">
 </head>
 <body>
-	<form id="addTaskForm">
-	  <input type="text" id="taskInput" placeholder="Enter task...">
-	  <button type="submit">Add</button>
-	</form>
-	<ul id="myTasks"></ul>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="editable-list-firebase.js"></script>
-	<script src="editable-list-local-storage.js"></script>
+	<div style="background-color:#f1f1f1;">
+		<div class="container">
+			<div class="form">
+				Lab List
+				<form id="LabList">
+				<input type="text" id="LabListInput" placeholder="Enter task...">
+				<button type="submit">Add</button>
+				</form>
+				<ul id="LabTasks"></ul>
+			</div>
+			<div class="form">
+				SEC103 List
+				<form id="SEC103">
+					<input type="text" id="SEC103Input" placeholder="Enter task...">
+					<button type="submit">Add</button>
+				</form>
+				<ul id="SEC103Tasks"></ul>
+				<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+				<script src="editable-list-firebase.js"></script>
+			</div>
+		</div>
+	</div>
+	<div>
+		<iframe id="frame" src="https://outlook.office365.com/owa/calendar/8d7a5405dbf740ca8c85bf5f5363ff46@caltech.edu/a1e3eac6d2e84d26bf315d7ea4bcca374061396183958040081/calendar.html" allow-same-origin></iframe>
+	</div>	  
 </body>
 </html>
