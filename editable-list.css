@@ -1,15 +1,12 @@
-body {
-    padding-top: env(safe-area-inset-top);
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
   }
-  
-  /* Fallback for devices that don't support env() */
-  @supports not (padding-top: env(safe-area-inset-top)) {
-    body {
-      padding-top: constant(safe-area-inset-top);
-      padding-top: env(safe-area-inset-top);
-    }
+
+  .form {
+    width: 100%;
   }
-  
+}
 
 /* Set the display property of the container element to flex to create a flex container */
 .container {
