@@ -1,12 +1,48 @@
-li {
-  margin-bottom: 5px;
-  list-style-type: none;
-  display: flex;
-  justify-content: space-between;
-}
+body {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  /* Fallback for devices that don't support env() */
+  @supports not (padding-top: env(safe-area-inset-top)) {
+    body {
+      padding-top: constant(safe-area-inset-top);
+      padding-top: env(safe-area-inset-top);
+    }
+  }
+  
 
-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
+/* Set the display property of the container element to flex to create a flex container */
+.container {
+    display: flex;
+    /* Set flex-wrap to nowrap to ensure that flex items do not wrap to a new line */
+    flex-wrap: nowrap;
+    /* Set the horizontal alignment of flex items to the left of the container */
+    justify-content: left;
+    /* Set the width of the container element to 100% */
+    width: 100%;
+    padding-bottom: 0px;
+  }
+
+ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 2%;
+  }
+
+li {
+    margin: 1px 0;
+    padding-left: 0%;
+  }
+
+  iframe {
+    border: 0;
+    width: 100%;
+    height: 700px;
+    frameborder: 0;
+    scrolling: no;
+    overflow: auto; /* add overflow property */
+  }
+
+.form {
+    width: 50%;
+  }
